@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A BD system for Navio Law — AI-led pipeline, lawyer-led relationships</title>
+<meta name="description" content="A proposal for Navio Law: a business development partnership where AI tools scale the front of the funnel and the team owns the relationship that follows.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a48;
+  --ink-faded: #8a8884;
+  --paper: #f6f3ec;
+  --paper-warm: #efebe0;
+  --paper-deep: #e8e3d4;
+  --rule: #d8d2c0;
+  --accent: #4a3aff;
+  --accent-soft: #ebe9ff;
+  --gold: #b87f1f;
+  --gold-soft: #f5ead2;
+  --green: #2d6a4f;
+  --green-soft: #d8e8de;
+
+  --serif: 'Fraunces', 'Times New Roman', serif;
+  --sans: 'Inter', -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--ink); color: var(--paper); }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ============ TOP BAR ============ */
+.topbar {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  background: rgba(246, 243, 236, 0.96);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+}
+.topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topbar-label {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-faded);
+  letter-spacing: 0.02em;
+}
+.topbar-meta {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ============ HERO ============ */
+.hero {
+  padding: 90px 0 100px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.hero-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--accent);
+  margin-bottom: 28px;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.1s forwards;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(42px, 7vw, 88px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: 36px;
+  max-width: 17ch;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.25s forwards;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 300;
+}
+.hero-lede {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 32rem;
+  margin-bottom: 56px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.45s forwards;
+}
+.hero-meta {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr;
+  gap: 12px 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  max-width: 720px;
+  font-size: 13px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.65s forwards;
+}
+.hero-meta dt {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-faded);
+}
+.hero-meta dd {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ SECTION HEADERS ============ */
+.section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.section-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--accent);
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+.section-num::before {
+  content: "§ ";
+  font-style: normal;
+}
+.section h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 18px;
+  max-width: 22ch;
+}
+.section h2 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.section-sub {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 38rem;
+  margin-bottom: 56px;
+}
+
+/* ============ THE STORY (3-band) ============ */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 48px;
+}
+.story-cell {
+  padding: 36px 32px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+  transition: background 0.3s ease;
+}
+.story-cell:last-child { border-right: none; }
+.story-cell:hover { background: var(--paper-warm); }
+.story-cell-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-faded);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+.story-cell-tool {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.story-cell.cowork .story-cell-tool { color: var(--accent); }
+.story-cell.pipedrive .story-cell-tool { color: var(--green); }
+.story-cell.lawyer .story-cell-tool { color: var(--gold); }
+.story-cell h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+.story-cell h3 em { font-style: italic; }
+.story-cell p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.thesis {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 48px 56px;
+  border-radius: 4px;
+  position: relative;
+}
+.thesis-label {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(246, 243, 236, 0.55);
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+.thesis-text {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  max-width: 50rem;
+}
+.thesis-text em {
+  font-style: italic;
+  color: #a99cff;
+}
+
+/* ============ ICP CARD ============ */
+.icp {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 64px;
+  align-items: start;
+}
+.icp-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 40px 40px;
+}
+.icp-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.icp-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.15;
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.icp-criteria { display: grid; gap: 16px; }
+.icp-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+.icp-row:last-child { border-bottom: none; padding-bottom: 0; }
+.icp-key {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-faded);
+}
+.icp-val {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.icp-points h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.icp-points ol {
+  list-style: none;
+  counter-reset: pts;
+}
+.icp-points li {
+  counter-increment: pts;
+  padding: 18px 0 18px 52px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.icp-points li:last-child { border-bottom: none; }
+.icp-points li::before {
+  content: counter(pts, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 18px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--accent);
+}
+
+/* ============ FLOW ============ */
+.flow-list { display: grid; gap: 14px; margin-bottom: 40px; }
+.flow-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 28px;
+  align-items: stretch;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 24px 28px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.flow-item:hover { transform: translateX(4px); box-shadow: 0 8px 24px -16px rgba(0,0,0,0.15); }
+.flow-item.handoff {
+  background: var(--gold-soft);
+  border-color: var(--gold);
+  border-width: 1.5px;
+}
+.flow-num {
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 4px;
+}
+.flow-item.cowork-step .flow-num { color: var(--accent); }
+.flow-item.pipedrive-step .flow-num { color: var(--green); }
+.flow-item.handoff .flow-num,
+.flow-item.lawyer-step .flow-num { color: var(--gold); }
+.flow-content { display: flex; flex-direction: column; justify-content: center; }
+.flow-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.flow-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 21px;
+  letter-spacing: -0.01em;
+}
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 3px;
+}
+.tag-cowork { background: var(--accent-soft); color: var(--accent); }
+.tag-pipedrive { background: var(--green-soft); color: var(--green); }
+.tag-lawyer { background: #fff; color: var(--gold); border: 1px solid var(--gold); }
+.flow-desc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.flow-item.handoff .flow-desc { color: #5a3e0e; }
+
+.handoff-line {
+  background: #fff;
+  border: 1px dashed var(--gold);
+  border-radius: 4px;
+  padding: 28px 36px;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.handoff-line strong {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* ============ PIPELINE ============ */
+.pipeline-stages {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.stage {
+  border-radius: 4px;
+  padding: 22px 14px;
+  text-align: center;
+  border: 1px solid;
+}
+.stage h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.stage p {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.stage.s-purple { background: var(--accent-soft); border-color: var(--accent); }
+.stage.s-purple h4 { color: var(--accent); }
+.stage.s-gold { background: var(--gold-soft); border-color: var(--gold); }
+.stage.s-gold h4 { color: var(--gold); }
+.stage.s-green { background: var(--green-soft); border-color: var(--green); }
+.stage.s-green h4 { color: var(--green); }
+
+.role-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 48px;
+}
+.role-cell {
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  padding: 8px 0;
+}
+.role-cell.r-ai { color: var(--accent); }
+.role-cell.r-human { color: var(--gold); }
+.role-cell.r-relationship { color: var(--green); }
+
+.pipeline-points {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+}
+.pipeline-pt h5 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.pipeline-pt p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* ============ TIMELINE ============ */
+.timeline {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 48px 56px;
+  margin-bottom: 32px;
+}
+.timeline-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-faded);
+  margin-bottom: 8px;
+}
+.timeline-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.15;
+  margin-bottom: 36px;
+  letter-spacing: -0.01em;
+  max-width: 24ch;
+}
+.timeline-title em { font-style: italic; color: var(--accent); }
+.timeline-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 28px;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+}
+.timeline-row:first-of-type { border-top: none; padding-top: 0; }
+.timeline-time {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-faded);
+  line-height: 1.4;
+}
+.timeline-action {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.timeline-action h5 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 18px;
+}
+.timeline-detail {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.bottom-line {
+  background: var(--paper-deep);
+  border-radius: 4px;
+  padding: 32px 40px;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.bottom-line strong {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ============ DIVISION OF LABOUR ============ */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 48px;
+}
+.split-col {
+  border-radius: 4px;
+  padding: 40px 40px;
+  position: relative;
+}
+.split-col.ai {
+  background: var(--accent-soft);
+}
+.split-col.human {
+  background: var(--gold-soft);
+}
+.split-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.split-col.ai .split-eyebrow { color: var(--accent); }
+.split-col.human .split-eyebrow { color: var(--gold); }
+.split-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.split-col ul {
+  list-style: none;
+}
+.split-col li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  font-size: 15px;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.split-col li:last-child { border-bottom: none; }
+.split-col li::before {
+  content: "—";
+  font-family: var(--serif);
+  flex-shrink: 0;
+}
+.split-col.ai li::before { color: var(--accent); }
+.split-col.human li::before { color: var(--gold); }
+.split-col.ai li { color: #2a1f6e; }
+.split-col.human li { color: #5a3e0e; }
+
+.bet {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 56px 64px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.bet-eyebrow {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(246, 243, 236, 0.55);
+  margin-bottom: 18px;
+}
+.bet-text {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  max-width: 50rem;
+}
+.bet-text em {
+  font-style: italic;
+  color: #a99cff;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  padding: 64px 0 80px;
+  border-top: 1px solid var(--rule);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.footer-mark {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  max-width: 28ch;
+}
+.footer-mark em { font-style: italic; color: var(--accent); }
+.footer-meta {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-faded);
+  text-align: right;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .container { padding: 0 24px; }
+  .hero { padding: 56px 0 64px; }
+  .section { padding: 64px 0; }
+  .story-grid { grid-template-columns: 1fr; }
+  .story-cell { border-right: none; border-bottom: 1px solid var(--rule); }
+  .story-cell:last-child { border-bottom: none; }
+  .icp { grid-template-columns: 1fr; gap: 40px; }
+  .pipeline-stages, .role-bar { grid-template-columns: 1fr 1fr; }
+  .pipeline-points { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
+  .timeline { padding: 32px 28px; }
+  .timeline-row { grid-template-columns: 1fr; gap: 8px; }
+  .thesis, .bet { padding: 36px 28px; }
+  .thesis-text, .bet-text { font-size: 22px; }
+  .hero-meta { grid-template-columns: 1fr; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <span class="topbar-label">A proposal, prepared for <strong style="color: var(--ink); font-style: normal;">Navio Law</strong></span>
+    <span class="topbar-meta">Confidential · 2026</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">A business development system for the firm of the future</p>
+    <h1>Biz Dev supported by AI fills the calendar. <em>The lawyer wins the room.</em></h1>
+    <p class="hero-lede">A proposal for a business development partnership at Navio — where AI tools scale the front of the funnel, and the team owns every relationship that follows.</p>
+  </div>
+</header>
+
+<!-- §1 THE STORY -->
+<section class="section">
+  <div class="container">
+    <p class="section-num">01 — The architecture</p>
+    <h2>Three roles. <em>One system.</em></h2>
+    <p class="section-sub">AI handles the volume work. The CRM keeps the firm honest. The lawyer does the part no algorithm ever could.</p>
+
+    <div class="story-grid">
+      <div class="story-cell cowork">
+        <p class="story-cell-num">No. 01</p>
+        <p class="story-cell-tool">AI tools</p>
+        <h3>Find &amp; <em>qualify</em></h3>
+        <p>AI scans for ICP-fit prospects, enriches them with context, and drafts the first outreach email — all on a schedule, without prompting.</p>
+      </div>
+      <div class="story-cell pipedrive">
+        <p class="story-cell-num">No. 02</p>
+        <p class="story-cell-tool">CRM</p>
+        <h3>Track &amp; <em>nudge</em></h3>
+        <p>Every prospect becomes a card. Every email is logged. Nothing slips through the cracks. The whole firm sees the same picture.</p>
+      </div>
+      <div class="story-cell lawyer">
+        <p class="story-cell-num">No. 03</p>
+        <p class="story-cell-tool">The Team</p>
+        <h3>Connect &amp; <em>close</em></h3>
+        <p>Once a meeting is booked, the team takes over. Biz dev opens the relationship; the lawyer closes the work — the part no software can do.</p>
+      </div>
+    </div>
+
+    <div class="thesis">
+      <p class="thesis-label">The thesis</p>
+      <p class="thesis-text">Legal services are not <em>discounted goods sold online.</em> They're personal and complex — clients buy the firm and its expertise, and AI is critical but can only take you so far. AI handles the eighty percent of work that comes before the conversation. The team's job is to walk into more of the right rooms, not to spend hours hunting for them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- §2 ICP -->
+<section class="section">
+  <div class="container">
+    <p class="section-num">02 — Targeting</p>
+    <h2>Define who you want <em>to walk into a room with.</em></h2>
+    <p class="section-sub">Set the ideal client profile once. AI hunts for matches automatically from then on.</p>
+
+    <div class="icp">
+      <div class="icp-card">
+        <p class="icp-eyebrow">Example ideal client profile</p>
+        <h3 class="icp-title">Ottawa-area founder, post-incorporation, pre-Series A</h3>
+        <div class="icp-criteria">
+          <div class="icp-row">
+            <span class="icp-key">Stage</span>
+            <span class="icp-val">Recently incorporated (0–24 months) or seed-stage</span>
+          </div>
+          <div class="icp-row">
+            <span class="icp-key">Sector</span>
+            <span class="icp-val">SaaS, fintech, healthtech, AI</span>
+          </div>
+          <div class="icp-row">
+            <span class="icp-key">Geography</span>
+            <span class="icp-val">Ottawa, Gatineau, Toronto corridor</span>
+          </div>
+          <div class="icp-row">
+            <span class="icp-key">Trigger</span>
+            <span class="icp-val">Funding announcement, hiring spree, federal contract</span>
+          </div>
+          <div class="icp-row">
+            <span class="icp-key">Signal</span>
+            <span class="icp-val">No GC, scaling team, contracts piling up</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="icp-points">
+        <h4>What the AI does with this profile, on its own</h4>
+        <ol>
+          <li>Scans funding announcements, news, and public filings on a schedule.</li>
+          <li>Builds a list of companies matching the criteria — name, founder, stage, signal.</li>
+          <li>Enriches each entry with LinkedIn, website, and recent press.</li>
+          <li>Pushes the list straight into the CRM as new lead cards, ready for the team.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §3 FLOW + HANDOFF -->
+<section class="section">
+  <div class="container">
+    <p class="section-num">03 — The flow</p>
+    <h2>The automated funnel — <em>until the moment it isn't.</em></h2>
+    <p class="section-sub">AI runs the funnel until a meeting is booked. Then the lawyer takes over completely.</p>
+
+    <div class="flow-list">
+      <div class="flow-item cowork-step">
+        <div class="flow-num">01</div>
+        <div class="flow-content">
+          <div class="flow-row">
+            <span class="flow-title">Find</span>
+            <span class="tag tag-cowork">AI</span>
+          </div>
+          <p class="flow-desc">Scheduled scan of funding databases, news, and public filings for companies matching the ICP. Runs weekly without anyone touching it.</p>
+        </div>
+      </div>
+
+      <div class="flow-item cowork-step">
+        <div class="flow-num">02</div>
+        <div class="flow-content">
+          <div class="flow-row">
+            <span class="flow-title">Enrich &amp; qualify</span>
+            <span class="tag tag-cowork">AI</span>
+          </div>
+          <p class="flow-desc">Pulls founder, LinkedIn, team size, recent press, and trigger events. Scores against ICP criteria. Discards anyone who already has counsel listed.</p>
+        </div>
+      </div>
+
+      <div class="flow-item pipedrive-step">
+        <div class="flow-num">03</div>
+        <div class="flow-content">
+          <div class="flow-row">
+            <span class="flow-title">Track</span>
+            <span class="tag tag-pipedrive">CRM</span>
+          </div>
+          <p class="flow-desc">Each high-fit lead lands as a deal card with contact info, the trigger event, and a draft outreach email already attached.</p>
+        </div>
+      </div>
+
+      <div class="flow-item handoff lawyer-step">
+        <div class="flow-num">04</div>
+        <div class="flow-content">
+          <div class="flow-row">
+            <span class="flow-title">The handoff</span>
+            <span class="tag tag-lawyer">Lawyer</span>
+          </div>
+          <p class="flow-desc">Biz dev opens the CRM, reviews the draft, edits in 60 seconds, and sends it personally — in a human voice, with the lawyer's sign-off where it matters. The system never sends outreach on its own.</p>
+        </div>
+      </div>
+
+      <div class="flow-item lawyer-step">
+        <div class="flow-num">05</div>
+        <div class="flow-content">
+          <div class="flow-row">
+            <span class="flow-title">Connect &amp; close</span>
+            <span class="tag tag-lawyer">Lawyer</span>
+          </div>
+          <p class="flow-desc">Once a meeting is booked, the system steps back. Biz dev runs the discovery and builds the relationship; the lawyer scopes the work and closes the engagement — the part of the job no algorithm can do.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="handoff-line">
+      <strong>WHERE THE SYSTEM STOPS BEING A SYSTEM</strong>
+      Biz dev fills the calendar with AI's help. Biz dev and the lawyer win the meetings together. That's the deal — and it's exactly why this works for a boutique firm.
+    </div>
+  </div>
+</section>
+
+<!-- §4 PIPELINE -->
+<section class="section">
+  <div class="container">
+    <p class="section-num">04 — The pipeline</p>
+    <h2>Where AI helps, <em>where the lawyer leads.</em></h2>
+    <p class="section-sub">Every deal moves through clear stages. The role of AI shrinks as the relationship deepens.</p>
+
+    <div class="pipeline-stages">
+      <div class="stage s-purple"><h4>New lead</h4><p>From AI</p></div>
+      <div class="stage s-purple"><h4>Discovery</h4><p>First outreach</p></div>
+      <div class="stage s-gold"><h4>Meeting</h4><p>Biz dev connects</p></div>
+      <div class="stage s-gold"><h4>Proposal</h4><p>Scope &amp; quote</p></div>
+      <div class="stage s-green"><h4>Signed</h4><p>Engaged</p></div>
+    </div>
+
+    <div class="role-bar">
+      <div class="role-cell r-ai">AI-led</div>
+      <div class="role-cell r-ai">AI-assisted</div>
+      <div class="role-cell r-human">Lawyer-led</div>
+      <div class="role-cell r-human">Lawyer-led</div>
+      <div class="role-cell r-relationship">Relationship</div>
+    </div>
+  </div>
+</section>
+
+<!-- §5 WORKED EXAMPLE -->
+<section class="section">
+  <div class="container">
+    <p class="section-num">05 — In practice</p>
+    <h2>One Monday morning <em>at Navio.</em></h2>
+    <p class="section-sub">A single lead, followed from the first AI scan to the moment the team takes over.</p>
+
+    <div class="timeline">
+      <p class="timeline-eyebrow">Example workflow</p>
+      <h3 class="timeline-title">From <em>"we've never heard of them"</em> to a booked meeting in 48 hours</h3>
+
+      <div class="timeline-row">
+        <div class="timeline-time">Monday<br>7:00 AM</div>
+        <div>
+          <div class="timeline-action">
+            <h5>AI runs the weekly ICP scan</h5>
+            <span class="tag tag-cowork">AI</span>
+          </div>
+          <p class="timeline-detail">Identifies an Ottawa-based AI startup that announced a $2.3M seed round on Friday. Flags it as a high-fit ICP match.</p>
+        </div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="timeline-time">Monday<br>7:04 AM</div>
+        <div>
+          <div class="timeline-action">
+            <h5>AI enriches and drafts outreach</h5>
+            <span class="tag tag-cowork">AI</span>
+          </div>
+          <p class="timeline-detail">Pulls founder LinkedIn, recent press, and team size. Drafts a tailored outreach email referencing the seed round and Navio's prior work with seed-stage SaaS clients.</p>
+        </div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="timeline-time">Monday<br>7:05 AM</div>
+        <div>
+          <div class="timeline-action">
+            <h5>The CRM receives a new deal card</h5>
+            <span class="tag tag-pipedrive">AI</span>
+          </div>
+          <p class="timeline-detail">Card created in the New lead stage with founder contact, trigger event, and the draft email attached as a note. Reminder set for the lawyer to review.</p>
+        </div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="timeline-time">Monday<br>9:30 AM</div>
+        <div>
+          <div class="timeline-action">
+            <h5>Biz dev reviews and personalises the draft</h5>
+            <span class="tag tag-lawyer">Lawyer</span>
+          </div>
+          <p class="timeline-detail">Edits 60 seconds of context — a shared connection, a small compliment on the team's product. Sends it personally, with the lawyer's sign-off where it matters. The first impression is human, not automated.</p>
+        </div>
+      </div>
+
+      <div class="timeline-row">
+        <div class="timeline-time">Wednesday</div>
+        <div>
+          <div class="timeline-action">
+            <h5>Founder books a call</h5>
+            <span class="tag tag-lawyer">Lawyer</span>
+          </div>
+          <p class="timeline-detail">The reply is logged to the CRM automatically. From here, AI is done. Biz dev opens the relationship; the lawyer scopes the work and closes the engagement.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §6 DIVISION OF LABOUR -->
+<section class="section">
+  <div class="container">
+    <p class="section-num">06 — The division of labour</p>
+    <h2>What AI runs. <em>What only the lawyer can do.</em></h2>
+    <p class="section-sub">A clear split — because boutique law is a relationship business, not a transactional one.</p>
+
+    <div class="split">
+      <div class="split-col ai">
+        <p class="split-eyebrow">What AI runs</p>
+        <h3 class="split-title">The volume work, before the conversation</h3>
+        <ul>
+          <li>Scan public sources for ICP-fit prospects</li>
+          <li>Monitor trigger events — funding, hires, expansions</li>
+          <li>Enrich each lead with structured context</li>
+          <li>Draft personalised outreach in the lawyer's voice</li>
+          <li>Track every deal, every email, every follow-up</li>
+          <li>Surface stalled deals and renewal opportunities</li>
+          <li>Run quietly, on a schedule, without prompting</li>
+        </ul>
+      </div>
+      <div class="split-col human">
+        <p class="split-eyebrow">What only humans can do</p>
+        <h3 class="split-title">The relationship, once it begins</h3>
+        <ul>
+          <li>Personalise the first outreach before sending</li>
+          <li>Run the discovery call</li>
+          <li>Build trust with the founder</li>
+          <li>Scope bespoke work from a real conversation</li>
+          <li>Use judgment on fit, risk, and pricing</li>
+          <li>Earn referrals through reputation</li>
+          <li>Be the reason the client signs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bet">
+      <p class="bet-eyebrow">The bet</p>
+      <p class="bet-text">If AI doubles the number of qualified meetings on the team's calendar this year, it doesn't matter that AI couldn't run the discovery or close the deal. The constraint on a boutique firm's growth has never been the lawyering — <em>it's been getting in front of the right people.</em> That's what this system solves.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p class="footer-mark">A proposal, with care, <em>for Navio Law.</em></p>
+    <p class="footer-meta">Prepared in advance of our conversation.<br>2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
